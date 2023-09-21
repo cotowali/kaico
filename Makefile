@@ -20,12 +20,14 @@ $(kaico_bin): $(v_files) $(path_dist)
 # tasks
 
 .DEFAULT_GOAL := all
-.PHONY: build run clean all
+.PHONY: build run clean test all
 build: $(kaico_bin)
 	@:
 run: build
 	@$(kaico_bin)
 clean:
 	rm -r $(path_dist)
+test:
+	v test .
 all: build
 	@:
