@@ -27,6 +27,5 @@ run: build
 	@$(kaico_bin)
 clean:
 	rm -r $(path_dist)
-dist_keep := $i(path_dist)/.keep
 all: build
 	@:
