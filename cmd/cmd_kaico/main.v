@@ -4,8 +4,26 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module main
 
+import os
+import cli
 import kaico // vfmt will breake this
 
 fn main() {
-	kaico.hello()
+	mut app := cli.Command{
+		name: 'kaico'
+		description: '' // TODO
+		execute: fn (cmd cli.Command) ! {
+			cmd.execute_help()
+		}
+		commands: [
+			cli.Command{
+				name: 'hello'
+				execute: fn (cmd cli.Command) ! {
+					kaico.hello()
+				}
+			},
+		]
+	}
+	app.setup()
+	app.parse(os.args)
 }
