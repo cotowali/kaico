@@ -6,19 +6,19 @@ module source
 
 import os
 
-enum SourceKind {
+pub enum SourceKind {
 	text
 	local_file
 }
 
-struct Source {
+pub struct Source {
 pub:
 	kind SourceKind
 	path string
 	code string
 }
 
-fn Source.from_text(code string) Source {
+pub fn Source.from_text(code string) Source {
 	return Source{
 		kind: .text
 		path: ''
@@ -26,7 +26,7 @@ fn Source.from_text(code string) Source {
 	}
 }
 
-fn Source.read_file(path string) !Source {
+pub fn Source.read_file(path string) !Source {
 	return Source{
 		kind: .local_file
 		path: path
