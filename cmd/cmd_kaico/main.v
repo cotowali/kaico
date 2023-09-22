@@ -6,14 +6,20 @@ module main
 
 import os
 import cli
-import kaico // vfmt will breake this
+import kaico
+import kaico.source { Source } // vfmt will breake this
 
 fn main() {
 	mut app := cli.Command{
 		name: 'kaico'
 		description: '' // TODO
 		execute: fn (cmd cli.Command) ! {
-			cmd.execute_help()
+			s := match cmd.args.len {
+				0 { Source.from_text(os.get_raw_lines_joined()) }
+				1 { Source.read_file(cmd.args[0])! }
+				else { return error('too many files specified') }
+			}
+			println(s)
 		}
 		commands: [
 			cli.Command{
