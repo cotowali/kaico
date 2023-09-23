@@ -11,6 +11,7 @@ pub enum SourceKind {
 	local_file
 }
 
+[heap]
 pub struct Source {
 pub:
 	kind SourceKind
