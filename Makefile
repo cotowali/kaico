@@ -3,6 +3,7 @@
 # ------------
 path_cmd := cmd
 path_dist := dist
+path_snippets := snippets
 
 v_files=$(wildcard **/*.v)
 
@@ -24,7 +25,12 @@ $(kaico_bin): $(v_files) $(path_dist)
 # tasks
 # -----
 .DEFAULT_GOAL := all
-.PHONY: build run clean test all
+.PHONY: new build run clean test all
+
+new_file_template_path := $(path_snippets)/license.vv
+new: file:=
+new:
+	cp $(new_file_template_path) $(file)
 build: $(kaico_bin)
 	@:
 run: build
