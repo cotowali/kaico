@@ -5,7 +5,7 @@ path_cmd := cmd
 path_dist := dist
 path_snippets := snippets
 
-v_files=$(wildcard **/*.v)
+v_files=$(shell find -name '*.v')
 
 $(path_dist): $(path_dist)/.keep
 	@:
