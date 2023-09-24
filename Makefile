@@ -33,8 +33,9 @@ new:
 	cp $(new_file_template_path) $(file)
 build: $(kaico_bin)
 	@:
+run: args:=
 run: build
-	@$(kaico_bin)
+	@$(kaico_bin) $(args)
 clean:
 	rm -r $(path_dist)
 test:
