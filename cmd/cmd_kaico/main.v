@@ -6,7 +6,6 @@ module main
 
 import os
 import cli
-import kaico
 import kaico.source { Source } // vfmt will breake this
 
 fn main() {
@@ -21,14 +20,6 @@ fn main() {
 			}
 			println(s)
 		}
-		commands: [
-			cli.Command{
-				name: 'hello'
-				execute: fn (cmd cli.Command) ! {
-					kaico.hello()
-				}
-			},
-		]
 	}
 	app.setup()
 	app.parse(os.args)
