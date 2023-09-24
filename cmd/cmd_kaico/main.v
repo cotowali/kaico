@@ -6,6 +6,7 @@ module main
 
 import os
 import cli
+import kaico.builder { Builder }
 import kaico.source { Source } // vfmt will breake this
 
 fn main() {
@@ -18,7 +19,14 @@ fn main() {
 				1 { Source.read_file(cmd.args[0])! }
 				else { return error('too many files specified') }
 			}
-			println(s)
+
+			b := Builder.new(s)
+			if out := b.build() {
+				println(out)
+			} else {
+				eprintln(err)
+				exit(1)
+			}
 		}
 	}
 	app.setup()
