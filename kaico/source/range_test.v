@@ -13,16 +13,20 @@ const (
 )
 
 fn test_new() {
-	assert Range.new(p1, p2) == Range{p1, p2}
-	assert Range.new(p2, p1) == Range{p1, p2}
+	r1 := Range.new(p1, p2)
+	r2 := Range.new(p2, p1)
+	assert r1.begin == p1
+	assert r2.begin == p1
+	assert r1.end == p2
+	assert r2.end == p2
 }
 
 fn test_extend() {
-	assert Range.new(p1, p2).extend(p3) == Range{p1, p3}
-	assert Range.new(p1, p2).extend(p0) == Range{p0, p2}
+	assert Range.new(p1, p2).extend(p3) == Range.new(p1, p3)
+	assert Range.new(p1, p2).extend(p0) == Range.new(p0, p2)
 
-	assert Range.new(p1, p2).extend(p1) == Range{p1, p2}
-	assert Range.new(p1, p2).extend(p2) == Range{p1, p2}
+	assert Range.new(p1, p2).extend(p1) == Range.new(p1, p2)
+	assert Range.new(p1, p2).extend(p2) == Range.new(p1, p2)
 }
 
 fn test_len() {

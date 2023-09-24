@@ -4,6 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module source
 
+[noinit]
 pub struct Range {
 pub:
 	begin Pos
