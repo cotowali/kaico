@@ -25,7 +25,7 @@ $(kaico_bin): $(v_files) $(path_dist)
 # tasks
 # -----
 .DEFAULT_GOAL := all
-.PHONY: new build run clean test all
+.PHONY: new build run clean fmt test all
 
 new_file_template_path := $(path_snippets)/license.vv
 new: file:=
@@ -40,5 +40,8 @@ clean:
 	rm -r $(path_dist)
 test:
 	v test .
+fmt: files:=$(v_files)
+fmt:
+	@v fmt -w $(files)
 all: build
 	@:
