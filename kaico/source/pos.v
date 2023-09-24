@@ -6,7 +6,7 @@ module source
 
 pub struct Pos {
 pub:
-	source ?&Source
+	source &Source
 
 	offset int [required]
 	line   int [required]

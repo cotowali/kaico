@@ -5,10 +5,11 @@
 import kaico.source { Pos, Range, Source }
 
 const (
-	p0 = Pos{none, 0, 1, 1}
-	p1 = Pos{none, 1, 1, 1}
-	p2 = Pos{none, 2, 1, 1}
-	p3 = Pos{none, 3, 1, 1}
+	s  = Source.from_text('')
+	p0 = Pos{&s, 0, 1, 1}
+	p1 = Pos{&s, 1, 1, 1}
+	p2 = Pos{&s, 2, 1, 1}
+	p3 = Pos{&s, 3, 1, 1}
 )
 
 fn test_new() {
@@ -29,21 +30,5 @@ fn test_len() {
 }
 
 fn test_source() {
-	s := Source.from_text('')
-	sp1 := Pos{
-		...p1
-		source: s
-	}
-	sp2 := Pos{
-		...p2
-		source: s
-	}
-	s1 := Range.new(p1, p2).source()
-	assert s1 == none
-	s2 := Range.new(p1, sp2).source()
-	assert s2 == none
-	s3 := Range.new(sp1, sp2).source() or { panic('') }
-	assert s3 == sp1.source or { panic('') }
-	s4 := Range.new(sp1, p2).source() or { panic('') }
-	assert s4 == sp1.source or { panic('') }
+	assert Range.new(p1, p2).source() == p1.source
 }

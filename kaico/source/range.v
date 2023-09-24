@@ -15,8 +15,8 @@ pub fn Range.new(p1 Pos, p2 Pos) Range {
 	return Range{begin, end}
 }
 
-pub fn (r Range) source() ?&Source {
-	return r.begin.source?
+pub fn (r Range) source() &Source {
+	return r.begin.source
 }
 
 pub fn (r Range) len() int {
