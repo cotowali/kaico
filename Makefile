@@ -5,7 +5,7 @@ path_cmd := cmd
 path_dist := dist
 path_snippets := snippets
 
-v_files=$(shell find -name '*.v')
+v_files := $(shell find -name '*.v')
 
 $(path_dist): $(path_dist)/.keep
 	@:
@@ -28,19 +28,19 @@ $(kaico_bin): $(v_files) $(path_dist)
 .PHONY: new build run clean fmt test all
 
 new_file_template_path := $(path_snippets)/license.vv
-new: file:=
+new: file :=
 new:
 	cp $(new_file_template_path) $(file)
 build: $(kaico_bin)
 	@:
-run: args:=
+run: args :=
 run: build
 	@$(kaico_bin) $(args)
 clean:
 	rm -r $(path_dist)
 test:
 	v test .
-fmt: files:=$(v_files)
+fmt: files := $(v_files)
 fmt:
 	@v fmt -w $(files)
 all: build
