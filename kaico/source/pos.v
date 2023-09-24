@@ -4,6 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module source
 
+[noinit]
 pub struct Pos {
 pub:
 	source &Source
@@ -11,6 +12,22 @@ pub:
 	offset int [required]
 	line   int [required]
 	column int [required]
+}
+
+[params]
+pub struct PosParams {
+	offset int [required]
+	line   int [required]
+	column int [required]
+}
+
+pub fn (s &Source) new_pos(pos PosParams) Pos {
+	return Pos{
+		source: s
+		offset: pos.offset
+		line: pos.line
+		column: pos.column
+	}
 }
 
 pub fn (lhs Pos) < (rhs Pos) bool {

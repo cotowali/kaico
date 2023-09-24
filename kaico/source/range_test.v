@@ -2,14 +2,14 @@
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-import kaico.source { Pos, Range, Source }
+import kaico.source { Range, Source }
 
 const (
 	s  = Source.from_text('')
-	p0 = Pos{&s, 0, 1, 1}
-	p1 = Pos{&s, 1, 1, 1}
-	p2 = Pos{&s, 2, 1, 1}
-	p3 = Pos{&s, 3, 1, 1}
+	p0 = s.new_pos(offset: 0, line: 1, column: 1)
+	p1 = s.new_pos(offset: 1, line: 1, column: 2)
+	p2 = s.new_pos(offset: 2, line: 1, column: 3)
+	p3 = s.new_pos(offset: 3, line: 1, column: 4)
 )
 
 fn test_new() {
