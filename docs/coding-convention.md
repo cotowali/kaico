@@ -13,7 +13,7 @@
 - Section MUST NOT be nested.
 - Section MUST NOT have closing comment.
 
-```
+```v
 // =====
 // const
 // =====
@@ -37,7 +37,7 @@ fn f() {}
 - `Foo.new` MAY receives `FooParams`
 
 
-```
+```v
 [noinit]
 pub struct Foo {
 pub:
@@ -67,7 +67,7 @@ pub fn Foo.from_foo(foo: string) Foo {
 
 Name of `[params]` struct SHOULD have suffix, `Params`
 
-```
+```v
 [params]
 pub struct FooParams {
 pub:
