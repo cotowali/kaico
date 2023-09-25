@@ -5,6 +5,7 @@
 module source
 
 import os
+import kaico.chars { Chars }
 
 pub enum SourceKind {
 	text
@@ -16,7 +17,7 @@ pub struct Source {
 pub:
 	kind SourceKind
 	path string
-	code string
+	code Chars
 }
 
 pub fn Source.from_text(code string) Source {
