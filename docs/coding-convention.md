@@ -1,5 +1,33 @@
 # Coding conventions
 
+## File
+
+### File Header
+
+- ALL files MUST starts with [license](../snippets/license.vv)
+
+### Section Header
+
+- File CAN contain section header for readability.
+- Section header MUST be same as example.
+- Section MUST NOT be nested.
+- Section MUST NOT have closing comment.
+
+```
+// =====
+// const
+// =====
+
+const v = 0
+
+// ========
+// function
+// ========
+
+// Here is v doc comment
+fn f() {}
+```
+
 ## Struct
 
 ### New method
