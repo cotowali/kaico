@@ -1,0 +1,17 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  setup:
+    uses: ./.github/workflows/setup.yaml
+  test:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - run: ls
+      - run: make test
