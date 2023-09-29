@@ -45,3 +45,17 @@ fmt:
 	@v fmt -w $(files)
 all: build
 	@:
+
+# ------
+# docker
+# ------
+docker-tag := kaico/kaico-dev
+docker-tag := kaico/kaico-dev
+docker-build: tag := $(docker-tag)
+docker-build:
+	docker build -t $(docker-tag) .
+docker-run: tag := $(docker-tag)
+docker-run: args := bash
+docker-run:
+	echo $(args)
+	docker run -it $(tag) $(args)
