@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  # Run each jobs in container by use of shared Dockerfile
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git clone https://github.com/vlang/v /opt/v --depth 1
+          cd /opt/v
+          make
+          ./v symlink
+      - run: make build
+      - run: make run args=-help
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git clone https://github.com/vlang/v /opt/v --depth 1
+          cd /opt/v
+          make
+          ./v symlink
+      - run: make test
