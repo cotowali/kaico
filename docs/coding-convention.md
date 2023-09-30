@@ -87,7 +87,6 @@ pub fn foo(params FooParams) {
 - Property functions signature MUST be `name() Type` or `name() ?Type` or `name() !Type`
 - Property functions MUST NOT have `get_` prefix
 
-
 ```
 struct Message {
 pub:
@@ -117,5 +116,39 @@ pub:
 
 fn (m PartialMessage) full_text() !string {
     return '${m.sender!}: ${m.text!}'
+
+}
+
+```
+
+## Documentation Comment
+
+- public item MUST have documentation.
+- Documentation MUST ends with `.`
+- Function, struct, variable and other names MUST be `` `name` ``
+- Sturct documentation MAY be `Struct represents ...`
+- [Struct.new](#new-method) documentation SHOULD be `Struct.new creates ...`
+- [Property](#property-function) documentations SHOULD be `value returns ...`
+
+
+```
+// Message represents a message.
+struct Message {
+pub:
+    sender string
+    text string
+}
+
+// Message.new creates `Message` from `sender` and `text`.
+fn Message.new(sender string, text string) Message {
+    return Message {
+        sender: sender
+        text: text
+    }
+}
+
+// full_text returns formatted text.
+fn (m Message) full_text() string {
+    return '${m.sender}: ${m.text}'
 }
 ```
