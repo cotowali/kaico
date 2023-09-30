@@ -12,20 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          git clone https://github.com/vlang/v /opt/v --depth 1
-          cd /opt/v
-          make
-          ./v symlink
+      - run: make -f ./.github/workflows/Makefile setup
       - run: make build
       - run: make run args=-help
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          git clone https://github.com/vlang/v /opt/v --depth 1
-          cd /opt/v
-          make
-          ./v symlink
+      - run: make -f ./.github/workflows/Makefile setup
       - run: make test
