@@ -38,12 +38,12 @@ run: build
 	@$(kaico_bin) $(args)
 clean:
 	rm -r $(path_dist)
-test: target := .
+test: path := .
 test:
-	v test $(target)
-fmt: files := $(v_files)
+	v test $(path)
+fmt: path := $(v_files)
 fmt:
-	@v fmt -w $(files)
+	@v fmt -w $(path)
 all: build
 	@:
 
