@@ -7,25 +7,43 @@ on:
     branches: [ "main" ]
 
 jobs:
-  # Run each jobs in container by use of shared Dockerfile
-  build:
+  prepare-container:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          git clone https://github.com/vlang/v /opt/v --depth 1
-          cd /opt/v
-          make
-          ./v symlink
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/metadata-action@v5
+        id: meta
+        with:
+          images: ghcr.io/${{ github.repository }}-pr${{ github.event.pull_request.number }}
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  build:
+    needs: prepare-container
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/${{ github.repository }}-pr${{ github.event.pull_request.number }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
       - run: make build
       - run: make run args=-help
   test:
+    needs: prepare-container
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/${{ github.repository }}-pr${{ github.event.pull_request.number }}
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          git clone https://github.com/vlang/v /opt/v --depth 1
-          cd /opt/v
-          make
-          ./v symlink
       - run: make test
