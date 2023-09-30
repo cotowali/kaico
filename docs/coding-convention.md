@@ -78,3 +78,41 @@ pub fn foo(params FooParams) {
     // ...
 }
 ```
+
+### Property function
+
+- Property functions signature MUST be `name() Type` or `name() ?Type` or `name() !Type`
+- Property functions MUST NOT have `get_` prefix
+
+
+```
+struct Message {
+pub:
+    sender string
+    text string
+}
+
+fn (m Message) full_text() string {
+    return '${m.sender}: ${m.text}'
+}
+
+struct Message2 {
+pub:
+    sender ?string
+    text ?string
+}
+
+fn (m Message2) full_text() ?string {
+    return '${m.sender?}: ${m.text?}'
+}
+
+struct Message3 {
+pub:
+    sender !string
+    text !string
+}
+
+fn (m PartialMessage) full_text() !string {
+    return '${m.sender!}: ${m.text!}'
+}
+```
