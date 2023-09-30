@@ -63,7 +63,7 @@ pub fn Foo.from_foo(foo: string) Foo {
 }
 ```
 
-# Params
+### Params
 
 Name of `[params]` struct SHOULD have suffix, `Params`
 
