@@ -24,6 +24,10 @@ pub fn (r Range) len() int {
 	return r.end.offset - r.begin.offset
 }
 
+pub fn (r Range) text() string {
+	return r.source().code[r.begin.offset..r.end.offset]
+}
+
 pub fn (r Range) extend(p Pos) Range {
 	return if p < r.begin {
 		Range.new(p, r.end)

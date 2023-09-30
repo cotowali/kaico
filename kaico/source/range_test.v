@@ -36,6 +36,13 @@ fn test_source() {
 	assert Range.new(p1, p2).source() == p1.source
 }
 
+fn test_text() {
+	assert p1.source.code == 'abcdef'
+	assert p1.offset == 1 && p3.offset == 3
+	assert Range.new(p1, p3).text() == 'bc'
+	assert Range.new(p2, p5).text() == 'cde'
+}
+
 fn test_extend() {
 	assert Range.new(p1, p2).extend(p3) == Range.new(p1, p3)
 	assert Range.new(p1, p2).extend(p0) == Range.new(p0, p2)
