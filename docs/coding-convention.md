@@ -1,5 +1,9 @@
 # Coding conventions
 
+- We define coding convetions for unified code.
+- Coding conventions should be defined in detail.
+- When writing code, if a rule doesn't exist, define a new one.
+
 ## File
 
 ### File Header
