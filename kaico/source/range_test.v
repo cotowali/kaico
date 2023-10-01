@@ -21,6 +21,11 @@ fn test_new() {
 	assert r2.end == p2
 }
 
+fn test_op() {
+	assert Range.new(p1, p2) == Range.new(p2, p1)
+	assert Range.new(p1, p2) != Range.new(p2, p3)
+}
+
 fn test_extend() {
 	assert Range.new(p1, p2).extend(p3) == Range.new(p1, p3)
 	assert Range.new(p1, p2).extend(p0) == Range.new(p0, p2)
