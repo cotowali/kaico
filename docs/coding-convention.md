@@ -134,21 +134,34 @@ fn (m PartialMessage) full_text() !string {
 
 ```
 // Message represents a message.
+[noinit]
 struct Message {
 pub:
     sender string
     text string
 }
 
-// Message.new creates `Message` from `sender` and `text`.
-fn Message.new(sender string, text string) Message {
+// MessageParams is the parameters for `Message.new`.
+struct Message {
+pub:
+    sender string
+    text string
+}
+
+// Message.new creates `Message`.
+fn Message.new(p MessageParams) Message {
     return Message {
-        sender: sender
-        text: text
+        sender: p.sender
+        text: p.text
     }
 }
 
-// full_text returns formatted text.
+// Message.from_text creates `Message` from `text`.
+fn Message.from_text(text: string) Message {
+    return Message.new(sender: '', text: text)
+}
+
+// full_text returns the full text.
 fn (m Message) full_text() string {
     return '${m.sender}: ${m.text}'
 }
