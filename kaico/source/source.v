@@ -7,11 +7,13 @@ module source
 import os
 import kaico.chars { Chars }
 
+// SourceKind represents the kind of source of `Source`.
 pub enum SourceKind {
 	text
 	local_file
 }
 
+// Source represents a source code.
 [heap]
 pub struct Source {
 pub:
@@ -20,6 +22,7 @@ pub:
 	code Chars
 }
 
+// Source.from_text creates `Source` from `code`
 pub fn Source.from_text(code string) Source {
 	return Source{
 		kind: .text
@@ -28,6 +31,7 @@ pub fn Source.from_text(code string) Source {
 	}
 }
 
+// Source.read_file creates `Source` from `path`.
 pub fn Source.read_file(path string) !Source {
 	return Source{
 		kind: .local_file
