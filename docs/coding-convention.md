@@ -36,7 +36,6 @@ fn f() {}
 - That struct SHUOLD be `[noinit]`
 - `Foo.new` MAY receives `FooParams`
 
-
 ```v
 [noinit]
 pub struct Foo {
