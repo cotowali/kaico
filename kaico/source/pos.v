@@ -30,10 +30,10 @@ pub fn (s &Source) new_pos(pos PosParams) Pos {
 	}
 }
 
-pub fn (lhs Pos) < (rhs Pos) bool {
+fn (lhs Pos) < (rhs Pos) bool {
 	return lhs.offset < rhs.offset
 }
 
-pub fn (lhs Pos) == (rhs Pos) bool {
+fn (lhs Pos) == (rhs Pos) bool {
 	return lhs.offset == rhs.offset
 }
