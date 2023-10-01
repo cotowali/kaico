@@ -126,7 +126,7 @@ fn (m PartialMessage) full_text() !string {
 - public item MUST have documentation.
 - Documentation MUST ends with `.`
 - Function, struct, variable and other names MUST be `` `name` ``
-- Sturct documentation MAY be `Struct represents ...`
+- Struct documentation MAY be `Struct represents ...`
 - [Struct.new](#new-method) documentation SHOULD be `Struct.new creates ...`
 - [Property](#property-function) documentations SHOULD be `value returns ...`
 
