@@ -37,3 +37,7 @@ fn (lhs Pos) < (rhs Pos) bool {
 fn (lhs Pos) == (rhs Pos) bool {
 	return lhs.offset == rhs.offset
 }
+
+pub fn (p Pos) in_range(r Range) bool {
+	return r.begin <= p && p < r.end
+}
