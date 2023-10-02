@@ -5,11 +5,13 @@
 import kaico.source { Range, Source }
 
 const (
-	s  = Source.from_text('')
+	s  = Source.from_text('abcdef')
 	p0 = s.new_pos(offset: 0, line: 1, column: 1)
 	p1 = s.new_pos(offset: 1, line: 1, column: 2)
 	p2 = s.new_pos(offset: 2, line: 1, column: 3)
 	p3 = s.new_pos(offset: 3, line: 1, column: 4)
+	p4 = s.new_pos(offset: 4, line: 1, column: 5)
+	p5 = s.new_pos(offset: 5, line: 1, column: 6)
 )
 
 fn test_new() {
@@ -42,4 +44,27 @@ fn test_extend() {
 	assert Range.new(p1, p2).extend(p2) == Range.new(p1, p2)
 }
 
+fn test_contains() {
+	r13 := Range.new(p1, p3)
+	assert r13.contains(r13)
 
+	assert !r13.contains(Range.new(p0, p1))
+	assert !r13.contains(Range.new(p0, p2))
+	assert !r13.contains(Range.new(p0, p3))
+	assert !r13.contains(Range.new(p0, p4))
+	assert !r13.contains(Range.new(p0, p5))
+
+	assert r13.contains(Range.new(p1, p2))
+	assert r13.contains(Range.new(p1, p3))
+	assert !r13.contains(Range.new(p1, p4))
+	assert !r13.contains(Range.new(p1, p5))
+
+	assert r13.contains(Range.new(p2, p3))
+	assert !r13.contains(Range.new(p2, p4))
+	assert !r13.contains(Range.new(p2, p5))
+
+	assert !r13.contains(Range.new(p3, p4))
+	assert !r13.contains(Range.new(p3, p5))
+
+	assert !r13.contains(Range.new(p4, p5))
+}

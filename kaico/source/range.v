@@ -33,3 +33,8 @@ pub fn (r Range) extend(p Pos) Range {
 		r
 	}
 }
+
+pub fn (r Range) contains(item Range) bool {
+	begin, end := item.begin, item.end
+	return begin.in_range(r) && (end == r.end || end.in_range(r))
+}
