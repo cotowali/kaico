@@ -26,6 +26,14 @@ fn test_op() {
 	assert Range.new(p1, p2) != Range.new(p2, p3)
 }
 
+fn test_len() {
+	assert Range.new(p1, p3).len() == p3.offset - p1.offset
+}
+
+fn test_source() {
+	assert Range.new(p1, p2).source() == p1.source
+}
+
 fn test_extend() {
 	assert Range.new(p1, p2).extend(p3) == Range.new(p1, p3)
 	assert Range.new(p1, p2).extend(p0) == Range.new(p0, p2)
@@ -34,10 +42,4 @@ fn test_extend() {
 	assert Range.new(p1, p2).extend(p2) == Range.new(p1, p2)
 }
 
-fn test_len() {
-	assert Range.new(p1, p3).len() == p3.offset - p1.offset
-}
 
-fn test_source() {
-	assert Range.new(p1, p2).source() == p1.source
-}
