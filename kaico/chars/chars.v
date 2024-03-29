@@ -4,9 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module chars
 
-pub const (
-	whitespaces = [' ', '\t', '\n', '\r', '　']
-)
+pub const whitespaces = [' ', '\t', '\n', '\r', '　']
 
 // Char represents single utf-8 char
 pub type Char = string

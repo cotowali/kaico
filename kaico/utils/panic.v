@@ -4,7 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module utils
 
-[noreturn]
+@[noreturn]
 pub fn unreachable() {
 	panic('unreachable')
 }

@@ -4,21 +4,21 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module source
 
-[noinit]
+@[noinit]
 pub struct Pos {
 pub:
 	source &Source
 
-	offset int [required]
-	line   int [required]
-	column int [required]
+	offset int @[required]
+	line   int @[required]
+	column int @[required]
 }
 
-[params]
+@[params]
 pub struct PosParams {
-	offset int [required]
-	line   int [required]
-	column int [required]
+	offset int @[required]
+	line   int @[required]
+	column int @[required]
 }
 
 pub fn (s &Source) new_pos(pos PosParams) Pos {

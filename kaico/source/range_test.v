@@ -4,15 +4,13 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 import kaico.source { Range, Source }
 
-const (
-	s  = Source.from_text('abcdef')
-	p0 = s.new_pos(offset: 0, line: 1, column: 1)
-	p1 = s.new_pos(offset: 1, line: 1, column: 2)
-	p2 = s.new_pos(offset: 2, line: 1, column: 3)
-	p3 = s.new_pos(offset: 3, line: 1, column: 4)
-	p4 = s.new_pos(offset: 4, line: 1, column: 5)
-	p5 = s.new_pos(offset: 5, line: 1, column: 6)
-)
+const s = Source.from_text('abcdef')
+const p0 = s.new_pos(offset: 0, line: 1, column: 1)
+const p1 = s.new_pos(offset: 1, line: 1, column: 2)
+const p2 = s.new_pos(offset: 2, line: 1, column: 3)
+const p3 = s.new_pos(offset: 3, line: 1, column: 4)
+const p4 = s.new_pos(offset: 4, line: 1, column: 5)
+const p5 = s.new_pos(offset: 5, line: 1, column: 6)
 
 fn test_new() {
 	r1 := Range.new(p1, p2)

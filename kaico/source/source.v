@@ -14,7 +14,7 @@ pub enum SourceKind {
 }
 
 // Source represents a source code.
-[heap]
+@[heap]
 pub struct Source {
 pub:
 	kind SourceKind
