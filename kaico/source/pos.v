@@ -4,6 +4,7 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 module source
 
+// Pos represents a position in a `Source`.
 @[noinit]
 pub struct Pos {
 pub:
@@ -14,6 +15,7 @@ pub:
 	column int @[required]
 }
 
+// PosParams is the parameters to create a new `Pos`.
 @[params]
 pub struct PosParams {
 	offset int @[required]
@@ -21,6 +23,7 @@ pub struct PosParams {
 	column int @[required]
 }
 
+// new_pos creates a new `Pos` in `Source`.
 pub fn (s &Source) new_pos(pos PosParams) Pos {
 	return Pos{
 		source: s
@@ -38,6 +41,7 @@ fn (lhs Pos) == (rhs Pos) bool {
 	return lhs.offset == rhs.offset
 }
 
+// in_range returns true if `Pos` is in `Range`.
 pub fn (p Pos) in_range(r Range) bool {
 	return r.begin <= p && p < r.end
 }
