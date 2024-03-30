@@ -2,8 +2,8 @@
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-import kaico.token { Token }
-import kaico.source { Range, Source }
+import kaico.token as _ { Token }
+import kaico.source as _ { Range, Source }
 
 fn test_text() {
 	s := Source.from_text('01234')

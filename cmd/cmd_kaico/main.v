@@ -6,8 +6,8 @@ module main
 
 import os
 import cli
-import kaico.builder { Builder }
-import kaico.source { Source } // vfmt will breake this
+import kaico.builder as _ { Builder }
+import kaico.source as _ { Source }
 
 fn main() {
 	mut app := cli.Command{

@@ -2,7 +2,7 @@
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-import kaico.source { Range, Source }
+import kaico.source as _ { Range, Source }
 
 fn test_op() {
 	s := Source.from_text('')
