@@ -84,6 +84,6 @@ fn test_is_whitespace() {
 		'９',
 		'Á',
 	]
-	check(@FN, @LINE, text.whitespaces, |c| c.is_whitespace())
+	check(@FN, @LINE, text.whitespaces[..], |c| c.is_whitespace())
 	check(@FN, @LINE, false_list, |c| !c.is_whitespace())
 }
