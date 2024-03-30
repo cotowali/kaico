@@ -31,7 +31,7 @@ pub fn Source.from_text(code string) Source {
 	}
 }
 
-// Source.read_file creates `Source` from `path`.
+// Source.read_file creates `Source` from reading content of file given by `path`
 pub fn Source.read_file(path string) !Source {
 	return Source{
 		kind: .local_file
