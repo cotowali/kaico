@@ -5,7 +5,7 @@
 module source
 
 import os
-import kaico.chars { Chars }
+import kaico.text { Chars }
 
 // SourceKind represents the kind of source of `Source`.
 pub enum SourceKind {

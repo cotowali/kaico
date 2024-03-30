@@ -2,7 +2,7 @@
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-module chars
+module text
 
 pub const whitespaces = [' ', '\t', '\n', '\r', '　']
 
@@ -61,5 +61,5 @@ pub fn (c Char) is_ident_first() bool {
 }
 
 pub fn (c Char) is_whitespace() bool {
-	return c in chars.whitespaces
+	return c in text.whitespaces
 }

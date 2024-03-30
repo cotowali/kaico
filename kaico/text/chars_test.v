@@ -2,7 +2,7 @@
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
-import kaico.chars { Char, Chars }
+import kaico.text { Char, Chars }
 
 fn test_chars() {
 	cc := Chars.new('abcあいう')
@@ -84,6 +84,6 @@ fn test_is_whitespace() {
 		'９',
 		'Á',
 	]
-	check(@FN, @LINE, chars.whitespaces, |c| c.is_whitespace())
+	check(@FN, @LINE, text.whitespaces, |c| c.is_whitespace())
 	check(@FN, @LINE, false_list, |c| !c.is_whitespace())
 }
