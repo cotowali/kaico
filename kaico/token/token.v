@@ -13,11 +13,11 @@ pub enum TokenKind {
 
 pub struct Token {
 pub:
-	kind TokenKind
-	pos  Range
+	kind  TokenKind
+	range Range
 }
 
 pub fn (t Token) text() string {
-	s := unwrap_none(t.pos.source())
-	return s.code[t.pos.begin.offset..t.pos.end.offset]
+	s := unwrap_none(t.range.source())
+	return s.code[t.range.begin.offset..t.range.end.offset]
 }

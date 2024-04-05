@@ -10,7 +10,7 @@ fn test_text() {
 	r := Range.new(s.new_pos(offset: 2, line: 1, column: 3), s.new_pos(offset: 4, line: 1, column: 5))
 	t := Token{
 		kind: .int_literal
-		pos: r
+		range: r
 	}
 	assert t.text() == '23'
 }
